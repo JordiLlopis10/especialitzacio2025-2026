@@ -1,34 +1,28 @@
-# def pedir_rondas(nombre_usuario):
-#     rondas_correctas = True
-
-#     while rondas_correctas:
-#         rondas = int(input("Cuantas rondas quieres jugar {}?: ".format(nombre_usuario)))
-#         if rondas % 2 == 0:
-#             print("El numero de rondas debe ser impar")
-#         elif rondas <= 1:
-#             print("El numero de rondas debe ser mayor que 1")
-#         else:
-#             rondas_correctas = False
-#             print("Perfecto, vamos a jugar",rondas,"rondas")
+import random
 
 
-# def pedir_nombre():
-#     nombre_usuario = input("Bienvenido al minijuego, cual es tu nombre? ")
-#     re
+def pedir_rondas(nombre_usuario):
+    rondas = int(input("Cuantas rondas quieres jugar {}?: ".format(nombre_usuario)))
+    return rondas
+    
+
+def pedir_nombre():
+    nombre_usuario = input("Bienvenido al minijuego, cual es tu nombre? ")
+    return nombre_usuario
 
 
-# def tirada_usuario():
+def tirada_usuario():
+    tirada_jugador = int(input("Que eliges,piedra(1), papel(2), tijeras(3), lagarto(4) o spock(5)?: "))
+    return tirada_jugador
 
-# def tirada_ia():
 
-# def determinar_ganador(tirada_jugador, tirada_maquina, elecciones):
-#     if tirada_jugador == tirada_maquina:
-#         return "empate"
+def tirada_ia():
+    tirada_maquina = random.randint(1,5)
+    return tirada_maquina
 
-#     gana_contra = elecciones[tirada_jugador][1]
-#     if tirada_maquina in gana_contra:
-#         return "usuario"
-#     return "maquina"
+
+# def determinar_ganador(maquina,gana_contra):
+    
 
 # def mostrar_resultado():
 

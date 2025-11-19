@@ -22,12 +22,12 @@ victorias_maquina = 0
 ronda = 1
 
 #preguntamos al usuario su nombre
-nombre_usuario = input("Bienvenido al minijuego, cual es tu nombre? ")
+nombre_usuario = pedir_nombre()
 rondas_correctas = True
 
 #comprovamos que nos digan una ronda mayor a 1 y que sea impar
 while rondas_correctas:
-    rondas = int(input("Cuantas rondas quieres jugar {}?: ".format(nombre_usuario)))
+    rondas = pedir_rondas(nombre_usuario)
     if rondas % 2 == 0:
         print("El numero de rondas debe ser impar")
     elif rondas <= 1:
@@ -40,15 +40,17 @@ while rondas_correctas:
 while rondas // 2 >= victorias_usuario and rondas // 2 >= victorias_maquina:
     print("\nRonda {}".format(ronda))
         
-    tirada_jugador = int(input("Que eliges,piedra(1), papel(2), tijeras(3), lagarto(4) o spock(5)?: "))
+
+    tirada_jugador = tirada_usuario()
 
     #El jugador debera elegir una opcion valida que va del numero 1 al 5, cualquier otro numero sera incorrecto y nos volvera a pedir el numero
     while tirada_jugador not in [1,2,3,4,5]:
         print("Eleccion incorrecta, vuelve a intentarlo")
-        tirada_jugador = int(input("\nQue elegies,piedra(1), papel(2), tijeras(3), lagarto(4) o spock(5)?: "))
+        tirada_jugador = tirada_usuario()
+        
 
     #Con el modulo random elegimos un numero del 1 al 5 para la maquina
-    tirada_maquina = random.randint(1,5)
+    tirada_maquina = tirada_ia()
     print("La maquina ha elegido",elecciones[tirada_maquina][0])
 
     #Asignamos los numeros donde si la maquina tiene alguno de los dos numeros ganaremos la ronda
